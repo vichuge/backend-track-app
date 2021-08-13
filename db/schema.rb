@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_08_13_221107) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.string "times"
+    t.integer "times"
     t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
