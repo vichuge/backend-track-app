@@ -4,8 +4,9 @@ RSpec.describe 'Records', type: :request do
   # initialize test data
   let!(:records) { create_list(:record, 10) }
   let(:record_id) { records.first.id }
+  let(:user) { FactoryBot.create(:user, username: 'acushla', password: 'password') }
   describe 'GET /records' do
-    before { get '/api/v1/records' }
+    before { get '/api/v1/records', headers: { 'Authorization' => AuthenticationTokenService.call(user.id) } }
     it 'returns records' do
       expect(json).not_to be_empty
       expect(json.size).to eq(10)
@@ -15,7 +16,9 @@ RSpec.describe 'Records', type: :request do
     end
   end
   describe 'GET /records/:id' do
-    before { get "/api/v1/records/#{record_id}" }
+    before do
+      get "/api/v1/records/#{record_id}", headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }
+    end
     context 'when record exists' do
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
@@ -41,13 +44,18 @@ RSpec.describe 'Records', type: :request do
       { times: 3, list_id: history.id, user_id: user1.id }
     end
     context 'when request attributes are valid' do
-      before { post '/api/v1/records', params: valid_attributes }
+      before do
+        post '/api/v1/records', params: valid_attributes,
+                                headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }
+      end
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
     end
     context 'when an invalid request' do
-      before { post '/api/v1/records', params: {} }
+      before do
+        post '/api/v1/records', params: {}, headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }
+      end
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
@@ -58,7 +66,10 @@ RSpec.describe 'Records', type: :request do
   end
   describe 'PUT /records/:id' do
     let(:valid_attributes) { { times: 7 } }
-    before { put "/api/v1/records/#{record_id}", params: valid_attributes }
+    before do
+      put "/api/v1/records/#{record_id}", params: valid_attributes,
+                                          headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }
+    end
     context 'when record exists' do
       it 'returns status code 204' do
         expect(response).to have_http_status(204)
@@ -79,7 +90,9 @@ RSpec.describe 'Records', type: :request do
     end
   end
   describe 'DELETE /records/:id' do
-    before { delete "/api/v1/records/#{record_id}" }
+    before do
+      delete "/api/v1/records/#{record_id}", headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }
+    end
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end

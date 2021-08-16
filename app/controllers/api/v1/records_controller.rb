@@ -1,6 +1,7 @@
 module Api
   module V1
     class RecordsController < ApplicationController
+      before_action :authenticate_request!
       before_action :set_record, only: %i[update show destroy]
       # GET /records
       def index
@@ -10,7 +11,7 @@ module Api
 
       # POST /record
       def create
-        @record = Record.create(record_params)
+        @record = current_user!.records.create(record_params)
         if @record.save
           render json: RecordRepresenter.new(@record).as_json, status: :created
         else
