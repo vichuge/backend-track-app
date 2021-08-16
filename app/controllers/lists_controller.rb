@@ -1,2 +1,0 @@
-class ListsController < ApplicationController
-end
