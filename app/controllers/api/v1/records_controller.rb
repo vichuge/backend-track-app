@@ -38,7 +38,7 @@ module Api
       private
 
       def record_params
-        params.permit(:times, :list_id)
+        params.permit(:times, :list_id, :user_id)
       end
 
       def set_record

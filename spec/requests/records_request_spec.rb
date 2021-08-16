@@ -36,8 +36,9 @@ RSpec.describe 'Records', type: :request do
   end
   describe 'POST /records/:id' do
     let!(:history) { create(:list) }
+    let!(:user1) { create(:user) }
     let(:valid_attributes) do
-      { times: 3, list_id: history.id }
+      { times: 3, list_id: history.id, user_id: user1.id }
     end
     context 'when request attributes are valid' do
       before { post '/api/v1/records', params: valid_attributes }
