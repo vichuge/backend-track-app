@@ -1,5 +1,5 @@
 class AuthenticationTokenService
-  HMAC_SECRET = Rails.application.secrets.secret_key_base
+  HMAC_SECRET = ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
   ALGORITHM_TYPE = 'HS256'.freeze
   def self.call(user_id)
     exp = 24.hours.from_now.to_i
