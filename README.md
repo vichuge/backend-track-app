@@ -4,7 +4,7 @@
 
 This app is the back-end for the final capstone on microverse program, to use it install [Postman](https://www.postman.com/) or another tool for API services (not supported on navigators).
 
-![Capture 1](./docs/Screenshot_1.png)
+![Capture 1](./docs/screenshots/Screenshot_1.png)
 
 ## Live demo
 
