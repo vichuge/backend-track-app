@@ -29,7 +29,6 @@
 }
 ```
 
-## ![](https://img.shields.io/badge/GET-green?style=for-the-badge) Records
 ## ![](https://img.shields.io/badge/-GET-brightgreen) Records
 
 ### Request headers:
