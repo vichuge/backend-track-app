@@ -5,7 +5,7 @@ module Api
       before_action :set_record, only: %i[update show destroy]
       # GET /records
       def index
-        @records = Record.all
+        @records = current_user!.records
         render json: RecordsRepresenter.new(@records).as_json
       end
 
