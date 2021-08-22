@@ -29,6 +29,18 @@
 }
 ```
 
+## ![](https://img.shields.io/badge/-GET-brightgreen) List elements
+
+### Request headers:
+
+| Key | value |
+| --- | --- |
+| Authorization | eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjkzMjc2MDF9.JriLeCaJdXi1kkWTtfxleSzLTTmhnOvOHlHughTJSHw |
+
+*token example
+
+`https://stormy-headland-20983.herokuapp.com/api/v1/lists`
+
 ## ![](https://img.shields.io/badge/-GET-brightgreen) Records
 
 ### Request headers:
