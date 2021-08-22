@@ -9,6 +9,7 @@ class RecordsRepresenter
         id: record.id,
         times: record.times,
         list: List.find(record.list_id).title,
+        icon: List.find(record.list_id).icon,
         date_added: record.created_at,
         user_id: record.user_id
       }
