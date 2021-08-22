@@ -52,3 +52,11 @@
 *token example
 
 `https://stormy-headland-20983.herokuapp.com/api/v1/records`
+
+![](https://img.shields.io/badge/JSON-blue?style=for-the-badge)
+```
+{
+    "times":3,
+    "list_id":1,
+}
+```
