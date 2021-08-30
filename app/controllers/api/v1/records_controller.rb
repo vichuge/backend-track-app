@@ -11,7 +11,7 @@ module Api
 
       # POST /record
       def create
-        @record = current_user!.records.create(record_params)
+        @record = current_user!.records.new(record_params)
         if @record.save
           render json: RecordRepresenter.new(@record).as_json, status: :created
         else

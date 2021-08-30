@@ -11,7 +11,7 @@ module Api
 
       # POST /list
       def create
-        @list = List.create(list_params)
+        @list = List.new(list_params)
         if @list.save
           render json: ListRepresenter.new(@list).as_json, status: :created
         else
