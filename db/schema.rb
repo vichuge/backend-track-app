@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_222255) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "records", "lists"
