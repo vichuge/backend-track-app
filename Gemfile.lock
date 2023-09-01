@@ -262,6 +262,7 @@ DEPENDENCIES
   faker
   jwt
   listen (~> 3.3)
+  nokogiri (~> 1.15, >= 1.15.4)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
