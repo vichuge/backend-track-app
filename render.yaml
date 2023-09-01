@@ -1,0 +1,18 @@
+databases:
+  - name: backend_track_app
+    databaseName: backend_track_app
+    user: backend_track_app
+
+services:
+  - type: web
+    name: backend-track-app
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: backend_track_app
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
