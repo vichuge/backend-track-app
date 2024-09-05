@@ -6,10 +6,6 @@ This app is the back-end for the final capstone on microverse program, to use it
 
 ![Capture 1](./docs/screenshots/Screenshot_1.png)
 
-## Live demo
-
-[https://stormy-headland-20983.herokuapp.com/api/v1/](https://stormy-headland-20983.herokuapp.com/api/v1/)
-
 ## API documentation
 
 [Click here to see it!](./docs/documentation/documentation.md)
